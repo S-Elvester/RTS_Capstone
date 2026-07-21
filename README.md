@@ -54,23 +54,23 @@ The rate-monotonic schedule for Core 1 defines task periods, priorities, and the
 
 ### Task Execution Timeline
 
-```mermaid
-gantt
-    title Rate-Monotonic Schedule (FreeRTOS Core 1)
-    section Task Periods
-    load_task_a (P=15): 0, 10
-    load_task_b (P=20): 20, 20
-    load_task_c (P=50): 40, 50
-    load_task_d (P=100): 100, 100
-    section ISR/Events
-    Button edge ISR: crit, 0, 5
-    btn_task_sem (P=12): crit, 12, 15
-    btn_task_notif: crit, 25, 28
-    section Context
-    load_task_a ops: 0, 10
-    load_task_b ops: 20, 40
-    load_task_c ops: 40, 90
 ```
+Time (ms):  0      10     20     30     40     50     60     70     80     90    100
+           |------|------|------|------|------|------|------|------|------|------|
+load_task_a [=====]                    [=====]            [=====]            [=====]
+load_task_b            [==========]           [==========]           [==========]
+load_task_c                                  [==================]           [====]
+load_task_d                                                    [===========================]
+ISR Event   ^                              ^                   ^              
+(Button)    t=0                           t=40                t=80
+```
+
+**Timeline Details:**
+- `load_task_a`: Executes at 0ms, 20ms, 40ms, 60ms, 80ms, 100ms (P=15ms repeating in 10ms slots)
+- `load_task_b`: Executes at 0ms-20ms, then 20ms-40ms, 40ms-60ms, etc. (P=20ms)
+- `load_task_c`: Executes at 40ms-90ms, 90ms-140ms (P=50ms)
+- `load_task_d`: Executes at 100ms+ (P=100ms)
+- **ISR Events** trigger context switches to high-priority tasks
 
 ### Event Handling
 
