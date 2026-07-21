@@ -1,17 +1,15 @@
-# RTS_Capston — Real-Time Systems Final Capstone
+# RTS_Capstone — Real-Time Systems Final Capstone
 
 ## One sentence
 This system is to ensure that a power grid can swiftly detect a fault and log the events for proper documentation.
 
 ## Demo
-- Video: <YouTube / Wokwi link>
+- Video:<Link Here> 
+- Wokwi: https://wokwi.com/projects/470133235085597697
 - Live Wokwi: ELVESTER-FINAL-RTS26Summer
 
 ## Architecture
-<diagram + 2–3 sentences on the data/control flow>
-<img width="711" height="1058" alt="image" src="https://github.com/user-attachments/assets/c493b146-9daa-4508-981a-03cfa680509c" />
-# FreeRTOS System Architecture
-
+// From Here till next // was AI assisted
 ## Core 0: ISR Context Flow
 
 The following diagram illustrates the interrupt service routine (ISR) handling on Core 0 when a button press is detected:
@@ -45,18 +43,18 @@ graph TD
 
 The rate-monotonic schedule for Core 1 defines task periods, priorities, and the ISR/bottom-half event handling:
 
-| Task | Period | Priority | Description |
-|------|--------|----------|-------------|
-| **load_task_a** | P=15 ms | T=10 ms | Executes every 10 ms slice |
-| **load_task_b** | P=20 ms | T=20 ms | Repeats every 20 ms |
-| **load_task_c** | P=50 ms | T=50 ms | Repeats every 50 ms |
-| **load_task_d** | P=100 ms | T=100 ms | Repeats every 100 ms |
+| Task            | Period   | Priority | Description                |
+|-----------------|----------|----------|----------------------------|
+| **load_task_a** | P=15 ms  | T=10 ms  | Executes every 10 ms slice |
+| **load_task_b** | P=20 ms  | T=20 ms  | Repeats every 20 ms        |
+| **load_task_c** | P=50 ms  | T=50 ms  | Repeats every 50 ms        |
+| **load_task_d** | P=100 ms | T=100 ms | Repeats every 100 ms       |
 
 ### Task Execution Timeline
 
 ```
 Time (ms):  0      10     20     30     40     50     60     70     80     90    100
-           |------|------|------|------|------|------|------|------|------|------|
+           |------|------|------|--------|------|------|------|------|------|------|
 load_task_a [=====]                    [=====]            [=====]            [=====]
 load_task_b            [==========]           [==========]           [==========]
 load_task_c                                  [==================]           [====]
@@ -105,13 +103,18 @@ ISR Event   ^                              ^                   ^
    - Rate-monotonic prioritization ensures deadline compliance
    - Background load tasks fill idle CPU cycles
    - Preemption latency measured for real-time compliance
-
+//
+The general flow
 ## Tasks & timing (WCET evidence)
 Using Full Task Breakdown from App 2
-| Task | Period T | WCET C | U=C/T | Priority | Deadline |
-|------|---------:|-------:|------:|---------:|---------:|
-<rows from the calculator>
-Total utilization U = <value>  (RM bound / EDF feasible: <note>)
+| Task | Function               | Period (ms) | WCET measured (ms) | Deadline | Priority |
+|------|------------------------|------------:|-------------------:|---------:|---------:|
+| A    |Fault Sweeping Monitor  | 10          | 0.601              | 10 ms    | 15       | 
+| B    |Classify Fault Status   | 25          | 0.237              | 25 ms    | 10       |
+| C    |Indicator Update        | 50          | 8.639              | 50 ms    | 5        |
+| D    |Grid Health Log         | 200         | 69.293             | 200 ms   | 2        | 
+
+Total utilization U = 0.59  (U = 0.591 ≤ RM bound (0.757). Schedulable under Rate-Monotonic and EDF (independent periodic tasks, deadline = period).)
 
 ## Hazard analysis & standard mapping
 <hazard, effect, mitigation; mapped to the standard clause>
