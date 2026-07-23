@@ -133,3 +133,7 @@ How to reproduce: Trigger Button ISR alternating between WITH_LOAD 0 and 1 with 
 ## Tailored for
 Embedded Power Systems Engineer - This entire project is about designing a system to reliably monitor a localized Power Grid in a reliable fashion.
 
+## AI Disclosure
+Had to use ChatGPT to handle Pages setup
+https://chatgpt.com/c/6a61b2dc-42dc-83ea-871b-176d3b0e4a6f
+
