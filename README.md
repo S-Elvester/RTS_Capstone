@@ -1,4 +1,4 @@
-# RTS_Capstone — Real-Time Systems Final Capstone
+# ELVESTER-FINAL-RTS26Summer — Real-Time Systems Final Capstone
 
 ## One sentence
 This system is to ensure that a power grid can swiftly detect a fault and log the events for proper documentation.
@@ -120,14 +120,16 @@ Using Full Task Breakdown from App 2
 Total utilization U = 0.59  (U = 0.591 ≤ RM bound (0.757). Schedulable under Rate-Monotonic and EDF (independent periodic tasks, deadline = period).)
 
 ## Hazard analysis & standard mapping
-<hazard, effect, mitigation; mapped to the standard clause>
+The most vital hazard to be aware of is a missed or delayed fault recognition. This risk is reduced via the utilization of the interrupt based ISR. The application also adopts high priority fault monitoring and real time logging of the tasks.
 
 ## Graceful degradation
-<what fails, how it is detected, what the system does instead>
+If the processor gets too heavily used, the high priority tasks are still able to clear on time. This is possible via preemption. This allows fault monitoriing to continue with only minor delays.
 
 ## Build & run
-<toolchain, board, how to reproduce>
+Toolchain: FreeRTOS with the ESP IDF
+Board: ESP32 simulated using Wokwi
+How to reproduce: Trigger Button ISR alternating between WITH_LOAD 0 and 1 with the simulator active.
 
 ## Tailored for
-<target role> — <why these choices fit that role>
+Embedded Power Systems Engineer - This entire project is about designing a system to reliably monitor a localized Power Grid in a reliable fashion.
 
