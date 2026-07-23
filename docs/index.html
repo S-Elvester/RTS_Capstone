@@ -2,27 +2,153 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Embedded Systems Portfolio</title>
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Real-Time Embedded Systems Portfolio</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 30px;
+            line-height: 1.6;
+            background-color: #f4f4f4;
+            color: #222;
+        }
+
+        header {
+            background-color: #1f2937;
+            color: white;
+            padding: 30px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+        }
+
+        section {
+            background-color: white;
+            padding: 25px;
+            margin-bottom: 25px;
+            border-radius: 8px;
+        }
+
+        h1,
+        h2 {
+            margin-top: 0;
+        }
+
+        img {
+            display: block;
+            width: 100%;
+            max-width: 850px;
+            height: auto;
+            margin-top: 15px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+        }
+
+        a {
+            color: #005bbb;
+            font-weight: bold;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 30px;
+            color: #555;
+        }
+    </style>
 </head>
 
 <body>
-    <h1>Embedded Systems Portfolio</h1>
 
-    <h2>Project Overview</h2>
-    <p>
-        This portfolio presents my real-time embedded systems project,
-        including its architecture, task design, hazard analysis,
-        source code, and test results.
-    </p>
+    <header>
+        <h1>Real-Time Embedded Systems Portfolio</h1>
 
-    <h2>Project Files</h2>
+        <p>
+            This portfolio presents my embedded real-time system,
+            including the system architecture, task design,
+            timing evidence, and hazard analysis.
+        </p>
+    </header>
 
-    <ul>
-        <li><a href="architecture.svg">System Architecture</a></li>
-        <li><a href="task-table.md">Task Table</a></li>
-        <li><a href="hazard-analysis.md">Hazard Analysis</a></li>
-    </ul>
+    <section>
+        <h2>Project Overview</h2>
+
+        <p>
+            This project uses multiple real-time tasks to monitor,
+            process, and report system conditions. Task priorities,
+            timing requirements, and fault handling are designed
+            to support dependable system operation.
+        </p>
+    </section>
+
+    <section>
+        <h2>System Architecture</h2>
+
+        <p>
+            The architecture diagram shows how the system components,
+            tasks, inputs, and outputs connect.
+        </p>
+
+        <img
+            src="./Architecture.png"
+            alt="System architecture diagram"
+        >
+    </section>
+
+    <section>
+        <h2>Task Table and WCET Evidence</h2>
+
+        <p>
+            The task table lists each task's purpose, priority,
+            period, deadline, and worst-case execution time.
+        </p>
+
+        <img
+            src="./Task-Table.png"
+            alt="Real-time task table and WCET evidence"
+        >
+    </section>
+
+    <section>
+        <h2>Hazard Analysis</h2>
+
+        <p>
+            The hazard analysis identifies possible system failures,
+            their effects, the protections used, and the related
+            safety-standard clauses.
+        </p>
+
+        <p>
+            <a href="./Hazard-analysis.md">
+                Open the hazard analysis
+            </a>
+        </p>
+    </section>
+
+    <section>
+        <h2>Repository</h2>
+
+        <p>
+            The full source code, documentation, and project files
+            are available in this GitHub repository.
+        </p>
+
+        <p>
+            <a href="../README.md">
+                View the repository README
+            </a>
+        </p>
+    </section>
+
+    <footer>
+        <p>Embedded Real-Time Systems Portfolio</p>
+    </footer>
+
 </body>
 </html>
