@@ -2,13 +2,9 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
-
-    <title>Real-Time Embedded Systems Portfolio</title>
+    <title>Embedded Systems Portfolio</title>
 
     <style>
         body {
@@ -17,49 +13,34 @@
             margin: 0 auto;
             padding: 30px;
             line-height: 1.6;
-            background-color: #f4f4f4;
+            background: #f4f4f4;
             color: #222;
         }
 
-        header {
-            background-color: #1f2937;
-            color: white;
-            padding: 30px;
-            border-radius: 8px;
-            margin-bottom: 30px;
-        }
-
+        header,
         section {
-            background-color: white;
+            background: white;
             padding: 25px;
             margin-bottom: 25px;
             border-radius: 8px;
         }
 
-        h1,
-        h2 {
-            margin-top: 0;
+        header {
+            background: #1f2937;
+            color: white;
         }
 
         img {
             display: block;
             width: 100%;
-            max-width: 850px;
             height: auto;
             margin-top: 15px;
             border: 1px solid #ccc;
-            border-radius: 6px;
         }
 
         a {
             color: #005bbb;
             font-weight: bold;
-        }
-
-        footer {
-            text-align: center;
-            margin-top: 30px;
-            color: #555;
         }
     </style>
 </head>
@@ -67,51 +48,40 @@
 <body>
 
     <header>
-        <h1>Real-Time Embedded Systems Portfolio</h1>
+        <h1>Embedded Systems Portfolio</h1>
 
         <p>
-            This portfolio presents my embedded real-time system,
-            including the system architecture, task design,
-            timing evidence, and hazard analysis.
+            This portfolio presents my real-time embedded systems project,
+            including its architecture, task design, hazard analysis,
+            source code, and test results.
         </p>
     </header>
-
-    <section>
-        <h2>Project Overview</h2>
-
-        <p>
-            This project uses multiple real-time tasks to monitor,
-            process, and report system conditions. Task priorities,
-            timing requirements, and fault handling are designed
-            to support dependable system operation.
-        </p>
-    </section>
 
     <section>
         <h2>System Architecture</h2>
 
         <p>
-            The architecture diagram shows how the system components,
-            tasks, inputs, and outputs connect.
+            The diagram below shows the main system components and how
+            information moves through the system.
         </p>
 
         <img
-            src="./Architecture.png"
-            alt="System architecture diagram"
+            src="Architecture.png"
+            alt="Embedded system architecture"
         >
     </section>
 
     <section>
-        <h2>Task Table and WCET Evidence</h2>
+        <h2>Task Table</h2>
 
         <p>
-            The task table lists each task's purpose, priority,
-            period, deadline, and worst-case execution time.
+            The task table shows each task's purpose, priority, period,
+            deadline, and worst-case execution time.
         </p>
 
         <img
-            src="./Task-Table.png"
-            alt="Real-time task table and WCET evidence"
+            src="Task-Table.png"
+            alt="Real-time system task table"
         >
     </section>
 
@@ -119,36 +89,16 @@
         <h2>Hazard Analysis</h2>
 
         <p>
-            The hazard analysis identifies possible system failures,
-            their effects, the protections used, and the related
-            safety-standard clauses.
+            The hazard analysis describes possible system failures,
+            their effects, and the protections used to reduce risk.
         </p>
 
         <p>
-            <a href="./Hazard-analysis.md">
-                Open the hazard analysis
+            <a href="Hazard-analysis.md">
+                Open Hazard Analysis
             </a>
         </p>
     </section>
-
-    <section>
-        <h2>Repository</h2>
-
-        <p>
-            The full source code, documentation, and project files
-            are available in this GitHub repository.
-        </p>
-
-        <p>
-            <a href="../README.md">
-                View the repository README
-            </a>
-        </p>
-    </section>
-
-    <footer>
-        <p>Embedded Real-Time Systems Portfolio</p>
-    </footer>
 
 </body>
 </html>
