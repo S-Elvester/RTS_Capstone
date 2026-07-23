@@ -103,8 +103,10 @@ ISR Event   ^                              ^                   ^
    - Rate-monotonic prioritization ensures deadline compliance
    - Background load tasks fill idle CPU cycles
    - Preemption latency measured for real-time compliance
+
 //
-The  system operates on a button ISR which records time of input and then signals the next tasks. These tasks then go based on the priority hierarchy decided with or without inheritance.
+**Architecture insights**
+The system operates on a button ISR which records time of input and then signals the next tasks. These tasks then go based on the priority hierarchy decided with or without inheritance.
 
 ## Tasks & timing (WCET evidence)
 Using Full Task Breakdown from App 2
