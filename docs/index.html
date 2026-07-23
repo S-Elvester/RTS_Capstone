@@ -12,73 +12,295 @@
     <title>RTS Capstone Project</title>
 
     <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
         body {
-            font-family: Arial, sans-serif;
-            max-width: 950px;
+            margin: 0;
+            font-family: "Times New Roman", Times, serif;
+            line-height: 1.7;
+            background:
+                linear-gradient(
+                    135deg,
+                    #e8f1ff 0%,
+                    #f7f2ff 50%,
+                    #e8fff6 100%
+                );
+            color: #1f2937;
+        }
+
+        .page-container {
+            width: 92%;
+            max-width: 1050px;
             margin: 0 auto;
-            padding: 30px;
-            line-height: 1.6;
-            background-color: #f4f4f4;
-            color: #222;
         }
 
         header {
-            background-color: #1f2937;
+            background:
+                linear-gradient(
+                    135deg,
+                    #0f2f57,
+                    #245a8d,
+                    #3f78a8
+                );
             color: white;
-            padding: 35px;
-            margin-bottom: 25px;
-            border-radius: 8px;
+            text-align: center;
+            padding: 65px 25px;
+            border-bottom: 6px solid #f4b942;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.22);
+        }
+
+        header h1 {
+            margin: 0 0 15px 0;
+            font-size: 3rem;
+            letter-spacing: 1px;
+        }
+
+        header p {
+            max-width: 850px;
+            margin: 0 auto;
+            font-size: 1.2rem;
+        }
+
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background-color: #ffffff;
+            border-bottom: 3px solid #245a8d;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.12);
+        }
+
+        nav .page-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            padding: 12px 0;
+        }
+
+        nav a {
+            color: #163a5f;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 9px 14px;
+            border-radius: 6px;
+            transition:
+                background-color 0.25s ease,
+                color 0.25s ease,
+                transform 0.25s ease;
+        }
+
+        nav a:hover {
+            background-color: #245a8d;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        main {
+            padding: 35px 0 10px 0;
         }
 
         section {
-            background-color: white;
-            padding: 25px;
-            margin-bottom: 25px;
-            border-radius: 8px;
+            background-color: rgba(255, 255, 255, 0.96);
+            padding: 30px;
+            margin-bottom: 30px;
+            border-radius: 14px;
+            border-left: 8px solid #245a8d;
+            box-shadow: 0 8px 20px rgba(28, 53, 82, 0.14);
+            transition:
+                transform 0.3s ease,
+                box-shadow 0.3s ease;
         }
 
-        h1,
+        section:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 28px rgba(28, 53, 82, 0.22);
+        }
+
+        section:nth-of-type(2) {
+            border-left-color: #2f855a;
+        }
+
+        section:nth-of-type(3) {
+            border-left-color: #805ad5;
+        }
+
+        section:nth-of-type(4) {
+            border-left-color: #d97706;
+        }
+
+        section:nth-of-type(5) {
+            border-left-color: #b83280;
+        }
+
         h2 {
             margin-top: 0;
+            color: #163a5f;
+            font-size: 2rem;
+            border-bottom: 2px solid #dbe7f3;
+            padding-bottom: 8px;
+        }
+
+        p {
+            font-size: 1.08rem;
+        }
+
+        .highlight-box {
+            background:
+                linear-gradient(
+                    90deg,
+                    #eef6ff,
+                    #f4efff
+                );
+            border: 1px solid #cbdaf0;
+            border-radius: 10px;
+            padding: 18px;
+            margin-top: 18px;
+        }
+
+        .image-link {
+            display: block;
+            margin-top: 20px;
+            text-decoration: none;
         }
 
         img {
             display: block;
             width: 100%;
-            max-width: 900px;
+            max-width: 950px;
             height: auto;
-            margin-top: 15px;
-            border: 1px solid #cccccc;
-            border-radius: 6px;
+            margin: 0 auto;
+            border: 2px solid #b9c9dc;
+            border-radius: 12px;
+            box-shadow: 0 8px 18px rgba(0, 0, 0, 0.16);
+            transition:
+                transform 0.3s ease,
+                box-shadow 0.3s ease;
         }
 
-        a {
-            color: #005bbb;
-            font-weight: bold;
-        }
-
-        a:hover {
-            text-decoration: none;
+        img:hover {
+            transform: scale(1.01);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.22);
         }
 
         .button {
             display: inline-block;
-            padding: 10px 16px;
-            margin-top: 8px;
-            background-color: #005bbb;
+            margin-top: 12px;
+            padding: 12px 20px;
+            background:
+                linear-gradient(
+                    135deg,
+                    #245a8d,
+                    #3d7fb8
+                );
             color: white;
             text-decoration: none;
-            border-radius: 5px;
+            font-weight: bold;
+            border-radius: 7px;
+            border: 2px solid transparent;
+            box-shadow: 0 5px 12px rgba(36, 90, 141, 0.28);
+            transition:
+                transform 0.25s ease,
+                background 0.25s ease,
+                box-shadow 0.25s ease;
         }
 
         .button:hover {
-            background-color: #003f80;
+            background:
+                linear-gradient(
+                    135deg,
+                    #163a5f,
+                    #245a8d
+                );
+            transform: translateY(-3px);
+            box-shadow: 0 8px 16px rgba(36, 90, 141, 0.36);
+        }
+
+        .button.hazard {
+            background:
+                linear-gradient(
+                    135deg,
+                    #b45309,
+                    #e59a2f
+                );
+        }
+
+        .button.hazard:hover {
+            background:
+                linear-gradient(
+                    135deg,
+                    #8a3f06,
+                    #b45309
+                );
+        }
+
+        .button.readme {
+            background:
+                linear-gradient(
+                    135deg,
+                    #7b2cbf,
+                    #a855f7
+                );
+        }
+
+        .button.readme:hover {
+            background:
+                linear-gradient(
+                    135deg,
+                    #5a189a,
+                    #7b2cbf
+                );
         }
 
         footer {
+            margin-top: 35px;
+            padding: 30px 20px;
             text-align: center;
-            color: #555;
-            padding: 20px;
+            background:
+                linear-gradient(
+                    135deg,
+                    #0f2f57,
+                    #245a8d
+                );
+            color: white;
+            border-top: 6px solid #f4b942;
+        }
+
+        footer p {
+            margin: 0;
+        }
+
+        @media (max-width: 700px) {
+            header h1 {
+                font-size: 2.2rem;
+            }
+
+            header p {
+                font-size: 1rem;
+            }
+
+            section {
+                padding: 22px;
+            }
+
+            h2 {
+                font-size: 1.6rem;
+            }
+
+            nav .page-container {
+                gap: 4px;
+            }
+
+            nav a {
+                padding: 7px 9px;
+                font-size: 0.95rem;
+            }
         }
     </style>
 </head>
@@ -86,95 +308,134 @@
 <body>
 
     <header>
-        <h1>RTS Capstone Project</h1>
+        <div class="page-container">
+            <h1>RTS Capstone Project</h1>
 
-        <p>
-            This portfolio presents the aaplication of an embedded Fault Monitoring system designed for Power Infrastructure. This includes its architecture, task design, hazard analysis,
-            source code, and test results.
-        </p>
+            <p>
+                This portfolio presents the application of an embedded
+                fault-monitoring system designed for power infrastructure.
+                It includes the system architecture, task design,
+                hazard analysis, source code, timing evidence, and test results.
+            </p>
+        </div>
     </header>
 
-    <main>
+    <nav>
+        <div class="page-container">
+            <a href="#overview">Overview</a>
+            <a href="#architecture">Architecture</a>
+            <a href="#tasks">Task Table</a>
+            <a href="#hazards">Hazard Analysis</a>
+            <a href="#readme">README</a>
+        </div>
+    </nav>
 
-        <section>
+    <main class="page-container">
+
+        <section id="overview">
             <h2>Project Overview</h2>
 
             <p>
-                THIS IS FILLER PLEASE REPLACE ONCE FINAL DRAFT IS MADE This project demonstrates a real-time embedded system
-                that uses multiple tasks to monitor system conditions,
-                process data, detect faults, and report system status.
+                This project demonstrates a real-time embedded fault-monitoring
+                system designed for use in power infrastructure. The system uses
+                multiple real-time tasks to monitor operating conditions, process
+                system data, detect abnormal events, and report fault information.
             </p>
 
             <p>
-                The system was designed using task priorities,
-                deadlines, worst-case execution-time measurements,
-                interrupt-based fault detection, and safe communication
-                between tasks.
+                Task priorities, deadlines, worst-case execution-time measurements,
+                interrupt-based fault detection, and protected communication methods
+                are used to support dependable and timely system operation.
             </p>
+
+            <div class="highlight-box">
+                <strong>Primary objective:</strong>
+                Detect and report power-system faults quickly while ensuring that
+                critical monitoring tasks continue to meet their timing requirements.
+            </div>
         </section>
 
-        <section>
+        <section id="architecture">
             <h2>System Architecture</h2>
 
             <p>
-                The architecture diagram shows the main system
-                components and how data and control signals move
-                through the system.
-            </p>
-
-            <a href="Architecture.png">
-                <img
-                    src="Architecture.png"
-                    alt="Embedded system architecture diagram"
-                >
-            </a>
-        </section>
-
-        <section>
-            <h2>Task Table and WCET Evidence</h2>
-
-            <p>
-                The task table shows each task's purpose, priority,
-                period, deadline, and measured worst-case execution time.
-            </p>
-
-            <a href="Task-Table.png">
-                <img
-                    src="Task-Table.png"
-                    alt="Real-time task table and WCET evidence"
-                >
-            </a>
-        </section>
-
-        <section>
-            <h2>Hazard Analysis</h2>
-
-            <p>
-                The hazard analysis identifies possible failures,
-                their effects, the methods used to reduce risk,
-                and the applicable safety-standard clauses.
+                The architecture diagram shows the main system components and
+                explains how data and control signals move between the input,
+                real-time tasks, shared resources, fault monitor, and system output.
             </p>
 
             <a
-                class="button"
+                class="image-link"
+                href="Architecture.png"
+                target="_blank"
+            >
+                <img
+                    src="Architecture.png"
+                    alt="Embedded fault-monitoring system architecture diagram"
+                >
+            </a>
+        </section>
+
+        <section id="tasks">
+            <h2>Task Table and WCET Evidence</h2>
+
+            <p>
+                The task table identifies each real-time task, its purpose,
+                execution period, deadline, priority, and measured worst-case
+                execution time. These values are used to evaluate whether the
+                system can complete its required work before each deadline.
+            </p>
+
+            <a
+                class="image-link"
+                href="Task-Table.png"
+                target="_blank"
+            >
+                <img
+                    src="Task-Table.png"
+                    alt="Real-time task table and worst-case execution-time evidence"
+                >
+            </a>
+        </section>
+
+        <section id="hazards">
+            <h2>Hazard Analysis</h2>
+
+            <p>
+                The hazard analysis identifies possible failures, their effects,
+                the methods used to reduce risk, and the related safety-standard
+                clauses. A major concern is missed or delayed fault recognition,
+                which could prevent the system from responding to a dangerous
+                condition in time.
+            </p>
+
+            <p>
+                The system reduces this risk through interrupt-based fault
+                detection, high-priority monitoring, task preemption, and
+                real-time event logging.
+            </p>
+
+            <a
+                class="button hazard"
                 href="Hazard-analysis.md"
+                target="_blank"
             >
                 View Hazard Analysis
             </a>
         </section>
 
-        <section>
+        <section id="readme">
             <h2>Project README</h2>
 
             <p>
-                The README contains the complete project description,
-                build instructions, source-code information, and
-                additional documentation.
+                The README contains the complete project description, build and
+                run instructions, source-code information, system design choices,
+                and additional project documentation.
             </p>
 
             <a
-                class="button"
-                href="https://github.com/YOUR-USERNAME/YOUR-REPOSITORY#readme"
+                class="button readme"
+                href="https://github.com/S-Elvester/RTS_Capstone/blob/main/README.md"
                 target="_blank"
                 rel="noopener noreferrer"
             >
@@ -185,7 +446,9 @@
     </main>
 
     <footer>
-        <p>RTS Capstone Project</p>
+        <p>
+            RTS Capstone Project — Embedded Fault Monitoring for Power Infrastructure
+        </p>
     </footer>
 
 </body>
