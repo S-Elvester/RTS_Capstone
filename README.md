@@ -104,7 +104,8 @@ ISR Event   ^                              ^                   ^
    - Background load tasks fill idle CPU cycles
    - Preemption latency measured for real-time compliance
 //
-The general flow
+The  system operates on a button ISR which records time of input and then signals the next tasks. These tasks then go based on the priority hierarchy decided with or without inheritance.
+
 ## Tasks & timing (WCET evidence)
 Using Full Task Breakdown from App 2
 | Task | Function               | Period (ms) | WCET measured (ms) | Deadline | Priority |
