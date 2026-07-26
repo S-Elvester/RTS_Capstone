@@ -172,6 +172,10 @@
             border-left-color: #b83280;
         }
 
+        #reflection {
+            border-left-color: #643f8c;
+        }
+
         h2 {
             margin-top: 0;
             padding-bottom: 9px;
@@ -284,8 +288,8 @@
             background:
                 linear-gradient(
                     135deg,
-                    #7b2cbf,
-                    #a855f7
+                    #9a2775,
+                    #d34fa2
                 );
         }
 
@@ -293,8 +297,26 @@
             background:
                 linear-gradient(
                     135deg,
-                    #5a189a,
-                    #7b2cbf
+                    #6f1c54,
+                    #9a2775
+                );
+        }
+
+        .reflection-button {
+            background:
+                linear-gradient(
+                    135deg,
+                    #643f8c,
+                    #9a6bc4
+                );
+        }
+
+        .reflection-button:hover {
+            background:
+                linear-gradient(
+                    135deg,
+                    #3b1f5c,
+                    #643f8c
                 );
         }
 
@@ -366,7 +388,8 @@
                 This portfolio presents the application of an embedded
                 fault-monitoring system designed for power infrastructure.
                 It includes the system architecture, task design, hazard
-                analysis, source code, timing evidence, and test results.
+                analysis, source code, timing evidence, test results, and
+                final reflection.
             </p>
         </div>
     </header>
@@ -378,6 +401,7 @@
             <a href="#tasks">Task Table</a>
             <a href="#hazards">Hazard Analysis</a>
             <a href="#readme">README</a>
+            <a href="#reflection">Final Reflection</a>
         </div>
     </nav>
 
@@ -399,8 +423,9 @@
 
             <div class="highlight-box">
                 <strong>Primary objective:</strong>
-                Detect and report simulated power-system faults while preserving
-                the timing requirements of the system's critical real-time tasks.
+                Detect and report simulated power-system faults while
+                preserving the timing requirements of the system's critical
+                real-time tasks.
             </div>
 
             <a
@@ -448,9 +473,8 @@
             </p>
 
             <p>
-                These measurements provide evidence that the scheduling design
-                can be evaluated using observed execution times rather than
-                assumed values.
+                These measurements allow the scheduling design to be evaluated
+                using observed execution times rather than assumed values.
             </p>
 
             <a
@@ -497,8 +521,9 @@
 
             <p>
                 The repository README contains the full project documentation,
-                including build and run instructions, design decisions, source-code
-                information, testing procedures, and supporting evidence.
+                including build and run instructions, design decisions,
+                source-code information, testing procedures, and supporting
+                evidence.
             </p>
 
             <a
@@ -514,6 +539,34 @@
                 The README opens on GitHub because it is stored at the root of
                 the repository rather than inside the published docs folder.
             </p>
+        </section>
+
+        <section id="reflection">
+            <h2>Final Reflection</h2>
+
+            <p>
+                The final reflection discusses the challenges I encountered,
+                what I would do differently, and the most valuable lesson I
+                gained while completing this real-time systems project.
+            </p>
+
+            <p>
+                It also includes my original written reflection as a complete
+                block of text to preserve my unedited work.
+            </p>
+
+            <div class="highlight-box">
+                <strong>Reflection focus:</strong>
+                Personal growth, coding confidence, lessons from the web-server
+                challenge, and a more disciplined approach to future projects.
+            </div>
+
+            <a
+                class="button reflection-button"
+                href="final-reflection.html"
+            >
+                View Final Reflection
+            </a>
         </section>
 
     </main>
