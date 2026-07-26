@@ -172,7 +172,7 @@
             border-top-color: #2f855a;
         }
 
-        #original-writing {
+        #original-overview {
             border-top-color: #9c2f6f;
         }
 
@@ -298,12 +298,12 @@
             border-radius: 11px;
         }
 
-        .original-writing-intro {
+        .original-note {
             color: #5f6470;
             font-style: italic;
         }
 
-        .original-writing-box {
+        .original-overview-block {
             margin-top: 20px;
             padding: 26px;
             background:
@@ -319,14 +319,10 @@
                 inset 0 0 14px rgba(156, 47, 111, 0.06);
         }
 
-        .original-writing-box p {
-            margin-top: 0;
-            margin-bottom: 18px;
+        .original-overview-block p {
+            margin: 0;
             font-size: 1.08rem;
-        }
-
-        .original-writing-box p:last-child {
-            margin-bottom: 0;
+            line-height: 1.85;
         }
 
         .button-row {
@@ -461,7 +457,7 @@
             <a href="#flow">System Flow</a>
             <a href="#comparison">Communication Methods</a>
             <a href="#testing">Testing Modes</a>
-            <a href="#original-writing">Original Writing</a>
+            <a href="#original-overview">Original Writing</a>
         </div>
     </nav>
 
@@ -471,16 +467,15 @@
             <h2>Application Purpose</h2>
 
             <p>
-                This application was designed to demonstrate a real-time
-                system that monitors and reports the condition of a simulated
-                power grid, with specific attention given to fault events.
+                This application demonstrates a real-time system that monitors
+                and reports the condition of a simulated power grid, with
+                particular attention given to fault events.
             </p>
 
             <p>
-                The simulation is implemented in Wokwi. A push button
-                represents a power-grid fault and allows fault events to be
-                introduced during testing. When the button is pressed, the
-                system begins the fault-handling process.
+                The simulation is implemented in Wokwi. A push button represents
+                a power-grid fault and allows fault events to be introduced
+                during testing.
             </p>
 
             <div class="highlight-box">
@@ -496,17 +491,15 @@
 
             <p>
                 The simulated fault button is configured as a hardware
-                interrupt. This allows the system to respond immediately when
-                a fault occurs rather than repeatedly checking the button
-                through periodic polling.
+                interrupt. This allows the system to respond when a fault
+                occurs instead of repeatedly checking the button through
+                periodic polling.
             </p>
 
             <p>
-                An interrupt-driven design allows the processor to continue
-                performing normal work until an event requires immediate
-                attention. When the event occurs, the interrupt service routine
-                records and signals the fault so the appropriate processing
-                task can respond.
+                When an event occurs, the interrupt service routine records
+                and signals the fault so the appropriate processing task can
+                respond.
             </p>
         </section>
 
@@ -515,8 +508,8 @@
 
             <p>
                 The application uses four periodic tasks to simulate the major
-                responsibilities of a power-grid fault-monitoring system. The
-                tasks are ordered according to their real-time priority.
+                responsibilities of a power-grid fault-monitoring system.
+                The tasks are ordered according to their real-time priority.
             </p>
 
             <div class="task-grid">
@@ -529,7 +522,7 @@
                     <p>
                         Detects and monitors incoming simulated fault events.
                         This task has the highest priority because fault
-                        recognition is the most time-sensitive system function.
+                        recognition is the most time-sensitive function.
                     </p>
                 </article>
 
@@ -563,7 +556,7 @@
                     <h3>Power Grid Health Logging</h3>
 
                     <p>
-                        Records the system condition, task activity, and fault
+                        Records system conditions, task activity, and fault
                         information so the application maintains a history of
                         its operation.
                     </p>
@@ -583,9 +576,8 @@
 
             <p>
                 The resulting classification determines how the fault
-                indicator represents the overall health of the system. The
-                system condition and fault information are then logged for
-                monitoring and record-keeping purposes.
+                indicator represents the overall health of the system.
+                The system condition and fault information are then logged.
             </p>
 
             <div class="flow">
@@ -605,10 +597,10 @@
             <h2>ISR Communication Comparison</h2>
 
             <p>
-                Another major feature of the application is the comparison
-                between a binary semaphore and a direct task notification.
-                Both mechanisms are used to signal a bottom-half task after
-                the interrupt service routine detects a simulated fault.
+                The application compares a binary semaphore with a direct task
+                notification. Both mechanisms are used to signal a bottom-half
+                task after the interrupt service routine detects a simulated
+                fault.
             </p>
 
             <div class="comparison-grid">
@@ -629,7 +621,7 @@
                     <p>
                         The direct task notification sends the event directly
                         to a specific task and is evaluated as a lower-overhead
-                        alternative for the fault-response path.
+                        option for the fault-response path.
                     </p>
                 </article>
 
@@ -637,7 +629,7 @@
 
             <p>
                 Measuring both methods makes it possible to determine which
-                option provides the most effective response for this specific
+                option provides the most effective response for this
                 interrupt-driven application.
             </p>
         </section>
@@ -657,7 +649,7 @@
                 <p>
                     The interrupt communication paths are measured while the
                     processor has minimal competing work. This represents an
-                    ideal or peak-performance condition.
+                    ideal operating condition.
                 </p>
             </div>
 
@@ -665,17 +657,16 @@
                 <h3>Loaded Mode</h3>
 
                 <p>
-                    The four periodic application tasks are enabled while the
-                    interrupt paths are measured. This provides a more
-                    realistic test of the fault-monitoring system under active
-                    processor load.
+                    The four periodic tasks are enabled while the interrupt
+                    paths are measured. This provides a more realistic test
+                    under active processor load.
                 </p>
             </div>
 
             <p>
-                Comparing these operating modes demonstrates how task
-                priorities, processor load, and preemption influence the
-                response time of the fault-handling system.
+                Comparing these modes demonstrates how priorities, processor
+                load, and preemption influence the response time of the
+                fault-handling system.
             </p>
         </section>
 
@@ -691,73 +682,20 @@
             <p>
                 It combines interrupt-based event detection, prioritized
                 periodic tasks, fault classification, condition indication,
-                system logging, and communication-latency testing.
-            </p>
-
-            <p>
-                The design offers several opportunities to test timing
-                behavior, compare FreeRTOS communication methods, observe
-                scheduling effects, and evaluate system performance under
-                different processor loads.
+                logging, and communication-latency testing.
             </p>
         </section>
 
-        <section id="original-writing">
-            <h2>Original Project Overview</h2>
+        <section id="original-overview">
+            <h2>Original Written Project Overview</h2>
 
-            <p class="original-writing-intro">
-                The following is the complete original project overview as
-                written, without shortening or restructuring.
+            <p class="original-note">
+                The following is my original project overview included as one
+                unedited block of writing.
             </p>
 
-            <div class="original-writing-box">
-
-                <p>
-                    This Application was designed to demonstrate a Real Time
-                    system to monitor and report on a simulated Power Grid.
-                    Specifically in relation to any form of fault event. This
-                    simulation is done in Wokwi using a button as the trigger
-                    for a simulated fault event. This is formulated as a
-                    hardware interrupt to avoid waiting for periodic polling.
-                </p>
-
-                <p>
-                    This code operates using four tasks to simulate all aspects
-                    of a fault monitoring system. These tasks are ordered by
-                    priority: Fault Monitor, Fault Status Classification,
-                    Update Fault Indicator and finally Power Grid Health
-                    Logging.
-                </p>
-
-                <p>
-                    The tasks are named to be self-explanatory, but I feel
-                    explaining the flow of logic better emphasizes the code at
-                    work. The system monitors a fault event and classifies each
-                    time stamp accordingly. There is an indicator that depends
-                    on the classification of the time stamp that will change
-                    based on the overall health of the system. This then is all
-                    logged for record keeping purposes.
-                </p>
-
-                <p>
-                    Another feature of this application is to compare the
-                    efficacy of a binary semaphore and direct task
-                    notification. This was to determine the best option for
-                    our system in regards of the ISR.
-                </p>
-
-                <p>
-                    This also meant implementing a toggling feature to have the
-                    system with no load and under load. This was useful for
-                    comparing a peak condition example to a more realistic
-                    variant of the system.
-                </p>
-
-                <p>
-                    This application operates smoothly and allows for a litany
-                    of testing opportunities.
-                </p>
-
+            <div class="original-overview-block">
+                <p><strong>Project Overview:</strong><br><br>This Application was designed to demonstrate a Real Time system to monitor and report on a simulated Power Grid. Specifically in relation to any form of fault event. This simulation is done in Wokwi using a button as the trigger for a simulated fault event. This is formulated as a hardware interrupt to avoid waiting for periodic polling. This code operates using four tasks to simulate all aspects of a fault monitoring system. These tasks are ordered by priority: Fault Monitor, Fault Status Classification, Update Fault Indicator and finally Power Grid Health Logging. The tasks are named to be self-explanatory, but I feel explaining the flow of logic better emphasizes the code at work. The system monitors a fault event and classifies each time stamp accordingly. There is an indicator that depends on the classification of the time stamp that will change based on the overall health of the system. This then is all logged for record keeping purposes. Another feature of this application is to compare the efficacy of a binary semaphore and direct task notification. This was to determine the best option for our system in regards of the ISR. This also meant implementing a toggling feature to have the system with no load and under load. This was useful for comparing a peak condition example to a more realistic variant of the system. This application operates smoothly and allows for a litany of testing opportunities.</p>
             </div>
         </section>
 
@@ -765,7 +703,7 @@
             <h2>Project Navigation</h2>
 
             <p>
-                Return to the main portfolio or open the complete repository
+                Return to the main portfolio or open the complete project
                 documentation.
             </p>
 
